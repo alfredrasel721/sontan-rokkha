@@ -1,0 +1,6 @@
+{
+  "name": "Sontan Rokkha (সন্তান রক্ষা) — Family Safety & Digital Wellbeing",
+  "description": "Transparent, parent-managed family safety and digital wellbeing platform with soft neumorphism design, bilingual Bangla & English support, and child dignity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

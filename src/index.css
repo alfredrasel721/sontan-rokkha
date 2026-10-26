@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sr-canvas: #EDF3F6;
+    --sr-card: #EFF5F8;
+    --sr-inner: #E5EDF2;
+    --sr-surface-white: #FFFFFF;
+    --sr-text-primary: #172B3A;
+    --sr-text-secondary: #40586B;
+    --sr-text-muted: #5B7180;
+    --sr-action-primary: #1C5A70;
+    --sr-action-primary-text: #FFFFFF;
+    --sr-action-soft: #D8EBE9;
+    --sr-state-success: #176652;
+    --sr-state-warning: #955716;
+    --sr-state-danger: #9B3946;
+    --sr-state-info: #275C98;
+    --sr-coral: #D97759;
+    --sr-mint: #BFE7D9;
+    --sr-divider: #CFDAE1;
+    --sr-focus: #175EAB;
+
+    --sr-shadow-raised-sm: 3px 4px 10px rgba(168, 186, 199, 0.32), -3px -3px 8px rgba(255, 255, 255, 0.94);
+    --sr-shadow-raised-md: 6px 8px 20px rgba(165, 185, 197, 0.36), -6px -6px 16px rgba(255, 255, 255, 0.98);
+    --sr-shadow-raised-lg: 8px 12px 28px rgba(165, 185, 197, 0.42), -8px -8px 20px rgba(255, 255, 255, 0.98);
+    --sr-shadow-inset: inset 3px 4px 7px rgba(178, 198, 210, 0.42), inset -3px -3px 8px rgba(255, 255, 255, 0.92);
+    --sr-shadow-float: 0 10px 28px rgba(102, 130, 148, 0.22);
+  }
+
+  .dark {
+    --sr-canvas: #131F29;
+    --sr-card: #21323D;
+    --sr-inner: #172732;
+    --sr-surface-white: #2D414D;
+    --sr-text-primary: #F2F7F8;
+    --sr-text-secondary: #C3D4DD;
+    --sr-text-muted: #AFC0CA;
+    --sr-action-primary: #7FD5CE;
+    --sr-action-primary-text: #10282C;
+    --sr-action-soft: #264D4E;
+    --sr-state-success: #8EE0C5;
+    --sr-state-warning: #FFCE8A;
+    --sr-state-danger: #FFA8AC;
+    --sr-state-info: #A4CCFF;
+    --sr-coral: #FFB59B;
+    --sr-mint: #335B52;
+    --sr-divider: #415560;
+    --sr-focus: #B8DFFF;
+
+    --sr-shadow-raised-sm: 3px 4px 12px rgba(7, 17, 26, 0.65), -2px -2px 6px rgba(45, 65, 80, 0.25);
+    --sr-shadow-raised-md: 5px 7px 18px rgba(7, 17, 26, 0.75), -4px -4px 12px rgba(45, 65, 80, 0.3);
+    --sr-shadow-raised-lg: 8px 12px 26px rgba(7, 17, 26, 0.85), -6px -6px 16px rgba(45, 65, 80, 0.35);
+    --sr-shadow-inset: inset 3px 4px 8px rgba(7, 17, 26, 0.75), inset -2px -2px 6px rgba(45, 65, 80, 0.25);
+    --sr-shadow-float: 0 12px 30px rgba(5, 13, 19, 0.65);
+  }
+
+  body {
+    background-color: var(--sr-canvas);
+    color: var(--sr-text-primary);
+    font-family: 'Hind Siliguri', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom Soft Neumorphism utility classes */
+.sr-card-raised {
+  background-color: var(--sr-card);
+  box-shadow: var(--sr-shadow-raised-md);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.dark .sr-card-raised {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sr-card-raised-sm {
+  background-color: var(--sr-card);
+  box-shadow: var(--sr-shadow-raised-sm);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.dark .sr-card-raised-sm {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sr-card-inset {
+  background-color: var(--sr-inner);
+  box-shadow: var(--sr-shadow-inset);
+  border: 1px solid rgba(207, 218, 225, 0.6);
+}
+.dark .sr-card-inset {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sr-btn-raised {
+  background-color: var(--sr-card);
+  box-shadow: var(--sr-shadow-raised-sm);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.15s ease-out;
+}
+.sr-btn-raised:active {
+  box-shadow: var(--sr-shadow-inset);
+  transform: translateY(1px);
+}
+
+.sr-btn-primary {
+  background: linear-gradient(135deg, #1C5A70 0%, #217E7B 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(28, 90, 112, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transition: all 0.15s ease-out;
+}
+.sr-btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(28, 90, 112, 0.4);
+}
+.dark .sr-btn-primary {
+  background: linear-gradient(135deg, #7FD5CE 0%, #5CB8B0 100%);
+  color: #10282C;
+  box-shadow: 0 4px 14px rgba(127, 213, 206, 0.25);
+}
+
+.sr-btn-danger {
+  background: linear-gradient(135deg, #9B3946 0%, #B84755 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(155, 57, 70, 0.35);
+  transition: all 0.15s ease-out;
+}
+.sr-btn-danger:active {
+  transform: scale(0.98);
+}
