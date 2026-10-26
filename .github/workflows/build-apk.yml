@@ -17,19 +17,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: 'npm'
 
       - name: Install dependencies and build web app
         env:
-          GEMINI_API_KEY: ${{AQ.Ab8RN6KJMC89tSh7iiI9K5QnBS2NaBrVPzFJqdPUsWPxCdU-AQ}}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Wrap web build with Capacitor Android
         run: |
           npm install @capacitor/core @capacitor/cli @capacitor/android --legacy-peer-deps
-          npx cap init "Sontan Rokkha" "com.alfredrasel.sontanrokkha" --web-dir dist
+          cat << 'EOF' > capacitor.config.json
+          {
+            "appId": "com.alfredrasel.sontanrokkha",
+            "appName": "Sontan Rokkha",
+            "webDir": "dist"
+          }
+          EOF
           npx cap add android
           npx cap sync android
 
